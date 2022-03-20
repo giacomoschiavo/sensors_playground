@@ -12,6 +12,7 @@ async function getMediaDevicesDescription() {
           }</b>`
       )
       .join("<br>");
+    console.log(mediaDevices);
     document.getElementById("text").innerHTML = descriptor;
   } catch (err) {
     document.getElementById("text").innerHTML = err;
