@@ -1,4 +1,4 @@
-import "regenerator-runtime";
+// import "regenerator-runtime";
 
 async function getMediaDevicesDescription() {
   document.getElementById("text").innerHTML = "getting infos...";
