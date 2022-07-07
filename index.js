@@ -1,9 +1,9 @@
-// import "regenerator-runtime";
+import "regenerator-runtime/runtime";
 
 async function getMediaDevicesDescription() {
   document.getElementById("text").innerHTML = "getting infos...";
   try {
-    const mediaDevices = await window.navigator.mediaDevices.enumerateDevices();
+    const mediaDevices = await navigator.mediaDevices.enumerateDevices();
     const descriptor = mediaDevices
       .map(
         (device) =>
@@ -12,7 +12,6 @@ async function getMediaDevicesDescription() {
           }</b>`
       )
       .join("<br>");
-    console.log(mediaDevices);
     document.getElementById("text").innerHTML = descriptor;
   } catch (err) {
     document.getElementById("text").innerHTML = err;
