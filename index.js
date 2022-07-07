@@ -1,21 +1,8 @@
-import "regenerator-runtime/runtime";
-
-async function getMediaDevicesDescription() {
-  document.getElementById("text").innerHTML = "getting infos...";
-  try {
-    const mediaDevices = await navigator.mediaDevices.enumerateDevices();
-    const descriptor = mediaDevices
-      .map(
-        (device) =>
-          `Kind: <b>${device.kind}</b> and label (if present): <b>${
-            device.label || "Not present"
-          }</b>`
-      )
-      .join("<br>");
-    document.getElementById("text").innerHTML = descriptor;
-  } catch (err) {
-    document.getElementById("text").innerHTML = err;
-  }
-}
-
-getMediaDevicesDescription();
+let acl = new Accelerometer({ frequency: 60 });
+acl.addEventListener("reading", () => {
+  console.log(acl.x, acl.y, acl.z);
+});
+acl.addEventListener("error", (error) => {
+  console.log(error);
+});
+acl.start();
